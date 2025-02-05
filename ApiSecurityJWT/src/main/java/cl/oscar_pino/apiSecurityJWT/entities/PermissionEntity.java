@@ -29,4 +29,9 @@ public class PermissionEntity {
     @Enumerated(EnumType.STRING)  
     @NotNull(message = "el campo no debe ser null")
     private PermissionEnum permissionEnum;	
+    
+    public PermissionEntity(PermissionEnum permissionEnum) {
+    	
+    	this.permissionEnum = permissionEnum;
+    }
 }

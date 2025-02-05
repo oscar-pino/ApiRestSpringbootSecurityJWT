@@ -55,5 +55,16 @@ public class UserEntity {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<RoleEntity> roles;	
+    private Set<RoleEntity> roles;
+    
+    public UserEntity(String username, String password, Set<RoleEntity> roles) {
+    	
+    	this.username = username;
+    	this.password = password;
+    	this.roles = roles;
+    	this.accountNoExpired = true;
+    	this.accountNoLocked = true;
+    	this.credentialNoExpired = true;
+    	this.isEnabled = true;
+    }
 }
