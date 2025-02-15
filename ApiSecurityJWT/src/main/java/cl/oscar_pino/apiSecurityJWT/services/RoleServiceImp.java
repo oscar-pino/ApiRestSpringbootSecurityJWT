@@ -2,6 +2,7 @@ package cl.oscar_pino.apiSecurityJWT.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,9 +28,9 @@ public class RoleServiceImp implements IDAO<RoleEntity> {
 		return (List<RoleEntity>) roleRepository.findAll();
 	}
 	
-	public List<RoleEntity> readAllRoleByName(String name) {
+	public List<RoleEntity> readAllRoleByName(List<String> names) {
 
-		return (List<RoleEntity>) roleRepository.findAllRoleByName(name);
+		return (List<RoleEntity>) roleRepository.findRoleEntitiesByRoleEnumIn(names);
 	}
 	
 	@Override

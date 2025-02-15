@@ -39,9 +39,7 @@ public class SupplierEntity {
 	
 	private String phone;
 	
-	private String email;
-
-	
+	private String email;	
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = MedicineEntity.class, mappedBy = "supplier")
     private Set<MedicineEntity> medicines;

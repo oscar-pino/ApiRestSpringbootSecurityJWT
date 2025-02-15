@@ -25,7 +25,7 @@ public class PermissionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "permission_name")
+    @Column(name = "permission_name", updatable = false)
     @Enumerated(EnumType.STRING)  
     @NotNull(message = "el campo no debe ser null")
     private PermissionEnum permissionEnum;	

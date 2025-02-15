@@ -34,7 +34,7 @@ public class CustomerEntity {
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@Email
+	@Email(message = "ingrese un email valido")
 	private String email;
 
 	private String phone;
@@ -46,6 +46,16 @@ public class CustomerEntity {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = PrescriptionEntity.class, mappedBy = "customer")
 	private Set<PrescriptionEntity> prescriptions;
+	
+	public CustomerEntity(String name, String lastName, String email, String phone, String address) {
+		
+		this.name = name;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		
+	}
 
 
 }
